@@ -1,0 +1,16 @@
+<html>
+
+<head>
+    <script src="01_localstorage.js"></script>
+</head>
+
+<body>
+    Clave1: <span id="div1" style="background-color: red"></span> Clave2: <span id="div2" style="background-color: green"></span>
+</body>
+
+<script>
+    document.getElementById("div1").innerText = localStorage.getItem("clave1");
+    document.getElementById("div2").innerText = localStorage.getItem("clave2");
+</script>
+
+</html>
