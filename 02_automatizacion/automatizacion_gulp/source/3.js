@@ -2,8 +2,6 @@
 /* jshint node: true */
 "use strict";
 // Pedimos la memoria usada
-     
-	 //hhh
 var mem = process.memoryUsage();
 // Calcularlo en Kb
 var memKb = {
