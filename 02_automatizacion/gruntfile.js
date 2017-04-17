@@ -14,15 +14,26 @@ module.exports = function(grunt) {
                 tasks: ["uglify"],
                 options: { spawn: false }
             }
+        },
+        concat: {
+            options: {
+                separator: "\n"
+            },
+            dist: {
+                src: ["./*.js"],
+                dest: "<%= pkg.name %>.todo.js"
+            }
         }
     };
 
     grunt.initConfig(configuracion);
 
     grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-concat");
     grunt.loadNpmTasks("grunt-contrib-watch");
 
-    grunt.registerTask("comprime", ["uglify"]);
+    grunt.registerTask("comprimir", ["uglify"]);
+    grunt.registerTask("concatenar", ["concat"]);
     grunt.registerTask("default", ["watch"]);
 
     function enUnCambio(accion, rutaFichero, destino) {
