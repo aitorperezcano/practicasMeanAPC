@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html data-ng-app>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo 2 AngularJS: Directivas</title>
+</head>
+
+<body data-ng-init="miBool = true; variosNombres=['Greta','Emilio','Daniel']">
+    {{ miBool ? "VERDADERO" : "FALSO" }}</br>
+
+    <input type="checkbox" data-ng-model="miBool" />
+    <input type="button" data-ng-click="variosNombres = ['Nadie']" value="Vaciar" />
+    <input type="text" data-ng-model="esteInput" data-ng-change="variosNombres=[esteInput, 'Otro elemento']" />
+    <ul>
+        <li data-ng-repeat="nombre in variosNombres">
+            {{ nombre + " está presente"}}
+        </li>
+    </ul>
+
+    <h2 data-ng-init="ciudades = []">Ciudades</h2>
+
+    <input type="text" data-ng-model="ciudad" />
+    <!--<input type="button" data-ng-click="ciudades.indexOf(ciudad) == -1 ? ciudades.push(ciudad): ciudades.push(ciudades.length + ciudad) ;ciudad=''" value="Añadir ciudad" />-->
+    <input type="button" data-ng-click="ciudades.push(ciudad);ciudad=''" value="Añadir ciudad" />
+    <input type="button" data-ng-click="ciudades = []" value="Vaciar" /></br>
+
+    <ol>
+        <!--OJO: track by $index nos permite recorrer la colección aunque el mismo elemento aparezca más de 1 vez -->
+        <li data-ng-repeat="c in ciudades track by $index">
+            {{ $index + " " + c}}
+        </li>
+    </ol>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo 3 AngularJS: Filtros</title>
+</head>
+
+<body data-ng-init="misClientes = 
+[{nombre:'Fran', ciudad:'Cádiz'},
+{nombre:'Sergio', ciudad:'Madrid'},
+{nombre:'Jorge', ciudad:'Bilbao'},
+{nombre:'Fran 2', ciudad:'Sevilla'},
+{nombre:'Sergio 2', ciudad:'Aranjuez'},
+{nombre:'Jorge 2', ciudad:'San Sebastián'}];
+parImpar = ''; pageSize = 3; pagina = 0;">
+    <h2>Listado clientes</h2>
+    <h3>Paginación:</h3>
+    <a href="#" data-ng-click="pagina > 0 ? pagina = pagina - 1: null">Anterior</a> Página: {{pagina + 1}} / {{ misClientes.length / pageSize }}
+    <a href="#" data-ng-click="pagina + 1 < (misClientes.length / pageSize)? pagina = pagina+1: null">Posterior</a>
+    </br>
+    <h3>Filtros:</h3>
+    <!-- Se añade .$ para evitar que se muestre en el input [object Object] cuando se busca por ciudad -->
+    Por cualquiera: <input type="text" data-ng-model="miFiltro.$" /></br>
+    Todos: <input type="radio" data-ng-model="parImpar" value="" /> Par: <input type="radio" data-ng-model="parImpar" value="par" /> Impar: <input type="radio" data-ng-model="parImpar" value="impar" /></br>
+    Por nombre: <input type="text" data-ng-model="miFiltro.nombre" /></br>
+    Por ciudad: <input type="text" data-ng-model="miFiltro.ciudad" /></br>
+    <h3>Lista:</h3>
+    <ul>
+        <li data-ng-repeat="c in misClientes | filter: miFiltro | orderBy: 'nombre' | limitTo: pageSize: pagina * pageSize" data-ng-show="parImpar == '' || parImpar == 'par' && $odd || parImpar == 'impar' && $even">
+            Cliente #{{ $index + 1 }}: {{ c.nombre }} de {{c.ciudad | uppercase}}
+        </li>
+    </ul>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+</html>
