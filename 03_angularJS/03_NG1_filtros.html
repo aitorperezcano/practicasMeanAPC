@@ -27,7 +27,7 @@ parImpar = ''; pageSize = 3; pagina = 0;">
     Por ciudad: <input type="text" data-ng-model="miFiltro.ciudad" /></br>
     <h3>Lista:</h3>
     <ul>
-        <li data-ng-repeat="c in misClientes | filter: miFiltro | orderBy: 'nombre' | limitTo: pageSize: pagina * pageSize" data-ng-show="parImpar == '' || parImpar == 'par' && $odd || parImpar == 'impar' && $even">
+        <li data-ng-repeat="c in misClientes | filter: miFiltro | orderBy: 'nombre' | limitTo: pageSize: pagina * pageSize" data-ng-show="parImpar == '' || (parImpar == 'par' && $odd) || (parImpar == 'impar' && $even)">
             Cliente #{{ $index + 1 }}: {{ c.nombre }} de {{c.ciudad | uppercase}}
         </li>
     </ul>
