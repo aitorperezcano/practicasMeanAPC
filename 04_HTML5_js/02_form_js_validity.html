@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo 1 HTML5: tipos de input</title>
+    <script>
+        window.onload = function() {
+            document.getElementById("email").addEventListener("invalid", function() {
+                validacionPersonalizadaEmail(this);
+            });
+        }
+
+        function validacionPersonalizadaEmail(input) {
+            //Si no se hace setCustomValidity(""), una vez que se ha hecho setCustomValidity(...) ya no vuelve a evaluar correctamente input.validity.valid
+            input.setCustomValidity("");
+            if (!input.validity.valid) {
+                input.setCustomValidity(document.getElementById("mensaje").value);
+            } else {
+                alert("Válido")
+            }
+        }
+    </script>
+    <style>
+        #miForm input:valid {
+            background: greenyellow;
+        }
+        
+        #miForm input:invalid {
+            background: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="miForm" autocomplete="off" action="#">
+        <!-- onsubmit="return validaCampos(this)" -->
+        <p>mensaje: <input id="mensaje" name="mensaje" type="text" placeholder="Introduzca mensaje de validación" /> </p>
+        <p>e-mail: <input id="email" name="email" type="email" title="campo de tipo email" required="required" /> </p>
+        <input type="submit" />
+    </form>
+</body>
+
+</html>

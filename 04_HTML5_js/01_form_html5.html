@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo 1 HTML5: tipos de input</title>
+</head>
+<script>
+    window.onload = function() {
+        document.getElementById("miForm").onsubmit = function() {
+            return validaCampos(this);
+        }
+    }
+
+    function validaCampos(f) {
+        var re = new RegExp("\\w+"); // /\w+/;
+        if (!re.test(f.nombre.value)) {
+            alert("No válido");
+            return false; //no envía el formulario
+        };
+        return true; //envía el formulario
+    }
+</script>
+
+<body>
+    <form id="miForm" autocomplete="off" action="#">
+        <!-- onsubmit="return validaCampos(this)" -->
+        <p>nombre: <input name="nombre" type="text" required="required" /> </p>
+        <p>e-mail: <input name="email" type="text" pattern=".+@[A-Za-z]+\.[a-z]{2,3}" /> </p>
+        <input type="submit" />
+    </form>
+</body>
+
+</html>
