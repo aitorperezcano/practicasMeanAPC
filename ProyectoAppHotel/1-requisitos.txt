@@ -1,0 +1,45 @@
+RESERVA
+nombre 
+e-mail
+fecha entrada 
+fecha salida
+tipo de habitacion: simple/doble
+nº personas (1 ó 2)
+Desayuno incluído/no incluído
+ID-RESERVA
+
+Todos Campos obligatorios 
+
+Medios de pago: sólo Tarjeta de crédito
+Pago adelantado
+Roles: gestor de hotel y cliente
+	Precio:
+		Simple: 40 €
+		Doble: 60 €
+		Desayuno: 10 € por persona
+
+Habitaciones:
+	6 simples
+	4 dobles
+
+Envio E-email reservas
+Lista de reservas
+Política de cancelación: se devuelve todo, hasta 48h antes. Si no, no se devuelve nada.
+
+Adminstrador también puede hacer reservas.
+Adminstrador login.
+Sólo puede cancelar el gestor
+Se puede cancerlar en las 48 horas antes del mediodia (12:00) de la fecha de entrada al hotel, pero no se devuelve el dinero.
+Chat para las cancelaciones
+	Histórico de chat
+Dos urls diferentes para clientes normales y administrador
+Politica de cokies
+Información LOPD al abrir el chat
+	Opcional (sistema de valoraciones)
+
+
+WEB HOTEL
+Fotos del hotel
+Ubicación Google Maps
+
+	Intel XDK
